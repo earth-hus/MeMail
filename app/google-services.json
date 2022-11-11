@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "927326515197",
+    "project_id": "memail-8c945",
+    "storage_bucket": "memail-8c945.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927326515197:android:9213dc29e5a7d1bcfcf394",
+        "android_client_info": {
+          "package_name": "com.example.memail"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927326515197-ifh3mt8gnl63vqpislvsp2pqsnepvpg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy0jttym7VwxCb8kZ4P2eWoHojajr557c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927326515197-ifh3mt8gnl63vqpislvsp2pqsnepvpg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
