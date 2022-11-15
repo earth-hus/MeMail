@@ -6,4 +6,6 @@
     <string name="school">School</string>
     <string name="profession">Profession</string>
     <string name="organization">Organization</string>
+
+    <string name="formats">Formats</string>
 </resources>
