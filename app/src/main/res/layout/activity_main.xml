@@ -9,10 +9,10 @@
 
     <EditText
         android:id="@+id/plain_text_input"
-        android:layout_width="256dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
         android:foregroundGravity="top|center_horizontal"
-        android:gravity="center_horizontal"
+        android:gravity="left"
         android:text="Search Topics"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.367"
