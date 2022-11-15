@@ -54,13 +54,6 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
 
             }
         });
-//        addBtn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                //do something
-//                notifyDataSetChanged();
-//            }
-//        });
 
         return view;
     }
