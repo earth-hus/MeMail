@@ -27,5 +27,4 @@ public class HomeActivity extends AppCompatActivity {
 //        data.put("Topic", "Topic 2");
 //        templates.document().set(data);
     }
-
 }
