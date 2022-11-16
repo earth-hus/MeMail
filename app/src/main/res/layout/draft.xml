@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Draft"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="64dp"
+        android:layout_height="77dp"
+        app:srcCompat="@drawable/ic_heart_foreground"
+        tools:layout_editor_absoluteX="331dp"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="78dp"
+        android:layout_height="79dp"
+        app:srcCompat="@drawable/ic_back_arrow_foreground"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="378dp"
+        android:layout_height="506dp"
+        android:text="Dear [Professor/Dr.] [Recommender Name],\n \nI hope you’re well. I’m in the process of applying to [school or company name] and want to ask if you feel comfortable writing a strong letter of recommendation on my behalf.\n\n
+I thoroughly enjoyed my time as [your relationship to the recommender]. As my [teacher/counselor/manager],
+I believe you could honestly and effectively vouch for my [list of skills or qualifications]
+I’ve demonstrated during our time together.\n\nI appreciate you considering my request. The deadline
+for submitting the letter is [date]. I’ve attached an updated version of my [resume/brag sheet], as well as the
+[job posting/admission requirements] and details on how to submit the letter. If you need any additional information, don’t hesitate to contact me.\n\n
+Thank you for your time and support.\n\nSincerely,\n\n[Your Name]\n\n[Your phone number]"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="131dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_share"
+        tools:layout_editor_absoluteX="331dp"
+        tools:layout_editor_absoluteY="652dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
