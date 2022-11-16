@@ -32,16 +32,11 @@ class LogInKT : AppCompatActivity() {
         super.onResume()
 
         if (firebaseAuth.currentUser != null) {
-//            binding.GoogleSignIn.visibility = View.GONE
-//            binding.btnGoogleSignOut.visibility = View.VISIBLE
-//            binding.tvResult.text = firebaseAuth.currentUser!!.email
             val homeIntent = Intent(this, HomeActivity::class.java)
             homeIntent.putExtra("user", firebaseAuth.currentUser)
             startActivity(homeIntent)
         } else {
             binding.GoogleSignIn.visibility = View.VISIBLE
-//            binding.btnGoogleSignOut.visibility = View.GONE
-//            binding.tvResult.text = null
         }
     }
 
@@ -64,15 +59,6 @@ class LogInKT : AppCompatActivity() {
             val intent = googleSignInClient.signInIntent
             googleSignInActivityResultLauncher.launch(intent)
         }
-
-//        binding.btnGoogleSignOut.setOnClickListener {
-//            firebaseAuth.signOut()
-//            googleSignInClient.signOut()
-//            onResume()
-//
-//            Log.d(TAG, "onActivityResult : Sign Out Successfully!")
-//            Toast.makeText(this, "Sign Out Successfully!", Toast.LENGTH_SHORT).show()
-//        }
     }
 
     private val googleSignInActivityResultLauncher =

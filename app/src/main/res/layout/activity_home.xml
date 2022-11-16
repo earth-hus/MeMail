@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:padding="50dp"
+                android:padding="40dp"
                 android:text="@string/school"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:backgroundTint="@color/pink"
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:padding="50dp"
+                android:padding="40dp"
                 android:text="@string/profession"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:backgroundTint="@color/lavender"
@@ -90,12 +90,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:padding="50dp"
+                android:padding="40dp"
                 android:text="@string/organization"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:backgroundTint="@color/pale_blue"
                 android:textColor="@color/black"
                 android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/SignOut"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:text="Sign Out"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:paddingHorizontal="50dp"
+                android:textColor="@color/black" />
 
         </LinearLayout>
     </LinearLayout>
