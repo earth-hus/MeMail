@@ -30,7 +30,7 @@ public class TopicActivity extends AppCompatActivity {
         listView.setAdapter(new MyCustomAdapter(list, this,"TopicActivity"));
     }
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent myIntent = new Intent(getApplicationContext(), DraftActivity.class);
+        Intent myIntent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(myIntent);
         return true;
     }
