@@ -1,6 +1,8 @@
 package com.example.memail;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,11 +20,18 @@ public class TopicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
         getSupportActionBar().setTitle("Email Topics");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent intent = getIntent();
+        String value = intent.getStringExtra("key");
 
         list = new ArrayList<>(Arrays.asList("Absence,Assignment Question,Exam Rescheduling,Extension Request,Introduction,Recommendation Letter,Research Interest".split(",")));
         ListView listView = (ListView) findViewById(R.id.listview);
-        TextView searchTopic= (TextView) findViewById(R.id.plain_text_input);
-        System.out.println("This is print: "+ searchTopic.getText());
-        listView.setAdapter(new MyCustomAdapter(list, this));
+        listView.setAdapter(new MyCustomAdapter(list, this,"TopicActivity"));
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), HomeActivity.class);
+        startActivity(myIntent);
+        return true;
     }
 }

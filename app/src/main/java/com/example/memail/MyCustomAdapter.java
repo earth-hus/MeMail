@@ -1,6 +1,7 @@
 package com.example.memail;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,12 @@ import java.util.ArrayList;
 public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> list;
     private Context context;
+    private String application;
 
-    public MyCustomAdapter(ArrayList<String> list, Context context) {
+    public MyCustomAdapter(ArrayList<String> list, Context context,String Application) {
         this.list = list;
         this.context = context;
+        this.application = Application;
     }
 
     @Override
@@ -50,8 +53,16 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         callbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //do something
+                if(application.equals("TopicActivity")){
+                    Intent myIntent = new Intent(context, FormatActivity.class);
+                    context.startActivity(myIntent);
 
+                }
+                else if(application.equals("FormatActivity")){
+//                    Intent myIntent = new Intent(context, Test.class);
+//                    context.startActivity(myIntent);
+
+                }
             }
         });
 

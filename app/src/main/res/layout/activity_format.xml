@@ -43,7 +43,6 @@
             android:layout_height="0dp"
             android:layout_weight="10"
             android:orientation="vertical"
-            android:padding="30dp"
             tools:context=".ListActivity" >
 
             <ListView
