@@ -56,12 +56,10 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
                 if(application.equals("TopicActivity")){
                     Intent myIntent = new Intent(context, FormatActivity.class);
                     context.startActivity(myIntent);
-
                 }
                 else if(application.equals("FormatActivity")){
-//                    Intent myIntent = new Intent(context, Test.class);
-//                    context.startActivity(myIntent);
-
+                    Intent myIntent = new Intent(context, DraftActivity.class);
+                    context.startActivity(myIntent);
                 }
             }
         });

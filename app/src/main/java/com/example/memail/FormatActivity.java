@@ -1,18 +1,33 @@
 package com.example.memail;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class FormatActivity extends AppCompatActivity {
-    ArrayList<String> formatList;
+    // List of formats
+    ArrayList<String> templateList;
+
+    // Database
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +36,42 @@ public class FormatActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Email Templates");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        formatList = new ArrayList<>(Arrays.asList("Format 1,Format 2,Format 3".split(",")));
+        // Get instance of firebase firestore
+        db = FirebaseFirestore.getInstance();
+        templateList = new ArrayList<>();
+
         ListView listView = (ListView) findViewById(R.id.format_list);
-        listView.setAdapter(new MyCustomAdapter(formatList, this,"FormatActivity"));
+
+        MyCustomAdapter adapter = new MyCustomAdapter(templateList, this,"DraftActivity");
+        listView.setAdapter(adapter);
+
+        db.collection("Templates").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if (!queryDocumentSnapshots.isEmpty()) {
+                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                            for (DocumentSnapshot d : list) {
+                                Templates c = d.toObject(Templates.class);
+                                templateList.add(c.getTitle());
+                                adapter.notifyDataSetChanged();
+                            }
+                        } else {
+                            Toast.makeText(FormatActivity.this, "No templates found in Database", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(FormatActivity.this, "Fail to get the data.", Toast.LENGTH_SHORT).show();
+                    }
+        });
+
+        System.out.println("test");
+
+
     }
+
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), TopicActivity.class);
         startActivity(myIntent);
