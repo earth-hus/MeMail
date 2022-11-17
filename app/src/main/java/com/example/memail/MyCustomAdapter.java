@@ -55,6 +55,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 if(application.equals("TopicActivity")){
                     Intent myIntent = new Intent(context, FormatActivity.class);
+                    myIntent.putExtra("Topic", list.get(position));
                     context.startActivity(myIntent);
                 }
                 else if(application.equals("FormatActivity")){
