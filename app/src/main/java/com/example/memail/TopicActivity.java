@@ -23,11 +23,11 @@ public class TopicActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        String value = intent.getStringExtra("key");
+        String category = intent.getStringExtra("Category");
 
         list = new ArrayList<>(Arrays.asList("Absence,Assignment Question,Exam Rescheduling,Extension Request,Introduction,Recommendation Letter,Research Interest".split(",")));
         ListView listView = (ListView) findViewById(R.id.listview);
-        listView.setAdapter(new MyCustomAdapter(list, this,"TopicActivity"));
+        listView.setAdapter(new MyCustomAdapter(list, this,"TopicActivity", category));
     }
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), HomeActivity.class);

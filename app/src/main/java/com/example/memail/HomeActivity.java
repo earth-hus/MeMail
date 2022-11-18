@@ -58,9 +58,18 @@ public class HomeActivity extends AppCompatActivity {
     }
     public void onClick(View v) {
         Intent myIntent = new Intent(HomeActivity.this, TopicActivity.class);
-        myIntent.putExtra("key", "value");
-        HomeActivity.this.startActivity(myIntent);
+        String category = "";
 
+        if (v.getId() == b.getId()) {
+            category = "School";
+        } else if (v.getId() == b1.getId()) {
+            category = "Profession";
+        } else {
+            category = "Organization";
+        }
+
+        myIntent.putExtra("Category", category);
+        HomeActivity.this.startActivity(myIntent);
     }
 
 //        CollectionReference templates = db.collection("Templates");
