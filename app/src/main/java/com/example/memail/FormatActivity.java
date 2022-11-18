@@ -47,7 +47,7 @@ public class FormatActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.format_list);
 
-        MyCustomAdapter adapter = new MyCustomAdapter(templateList, this,"DraftActivity");
+        MyCustomAdapter adapter = new MyCustomAdapter(templateList, this,"FormatActivity");
         listView.setAdapter(adapter);
 
         db.collection("Templates").get()
