@@ -8,13 +8,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal|top">
+            android:gravity="center_horizontal|top"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/backButton"
@@ -45,8 +47,8 @@
 
         <EditText
             android:id="@+id/draft"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="569dp"
             android:layout_margin="10dp"
             android:text="Dear [Professor/Dr.] [Recommender Name],\n \nI hope you’re well. I’m in the process of applying to [school or company name] and want to ask if you feel comfortable writing a strong letter of recommendation on my behalf.\n\n
     I thoroughly enjoyed my time as [your relationship to the recommender]. As my [teacher/counselor/manager],
