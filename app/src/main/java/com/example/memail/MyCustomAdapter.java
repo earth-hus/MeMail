@@ -49,6 +49,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         //Handle buttons and add onClickListeners
         Button callbtn= (Button) view.findViewById(R.id.btn);
         callbtn.setText(list.get(position));
+        System.out.println(position);
 
         callbtn.setOnClickListener(new View.OnClickListener(){
             @Override
