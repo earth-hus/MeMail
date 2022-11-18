@@ -16,11 +16,20 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> list;
     private Context context;
     private String application;
+    private String category;
 
     public MyCustomAdapter(ArrayList<String> list, Context context,String Application) {
         this.list = list;
         this.context = context;
         this.application = Application;
+        this.category = "";
+    }
+
+    public MyCustomAdapter(ArrayList<String> list, Context context,String Application, String category) {
+        this.list = list;
+        this.context = context;
+        this.application = Application;
+        this.category = category;
     }
 
     @Override
@@ -53,9 +62,12 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         callbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(application.equals("TopicActivity")){
+                if(application.equals("TopicActivity")) {
                     Intent myIntent = new Intent(context, FormatActivity.class);
+
                     myIntent.putExtra("Topic", list.get(position));
+                    myIntent.putExtra("Category", category);
+
                     context.startActivity(myIntent);
                 }
                 else if(application.equals("FormatActivity")){

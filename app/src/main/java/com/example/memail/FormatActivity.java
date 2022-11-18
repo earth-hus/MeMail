@@ -39,6 +39,7 @@ public class FormatActivity extends AppCompatActivity {
         // Get the topic of intended email
         Bundle extras = getIntent().getExtras();
         String topic = extras.getString("Topic");
+        String category = extras.getString("Category");
 
         // Get instance of firebase firestore
         db = FirebaseFirestore.getInstance();
@@ -60,7 +61,7 @@ public class FormatActivity extends AppCompatActivity {
                                 String temp = c.getTopic();
 
                                 // Check to make sure topic matches
-                                if (topic.equals(c.getTopic())) {
+                                if (topic.equals(c.getTopic()) && category.equals(c.getCategory())) {
                                     templateList.add(c.getTitle());
                                     adapter.notifyDataSetChanged();
                                 }
