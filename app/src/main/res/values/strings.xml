@@ -1,4 +1,5 @@
 <resources>
+    <!--    <string name="default_web_client_id">927326515197-hnan1sc2mmslv2or01muqan1m3r6uikb.apps.googleusercontent.com</string>-->
     <string name="app_name">MeMail</string>
     <string name="categories">Categories</string>
     <string name="saved">Saved</string>
