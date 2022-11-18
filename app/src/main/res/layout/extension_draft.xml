@@ -30,7 +30,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:inputType="textPersonName"
-                android:text="Draft"
+                android:text="Deadline Extension Draft"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -40,19 +40,17 @@
                 android:layout_height="75dp"
                 app:srcCompat="@drawable/ic_heart_foreground"
                 tools:ignore="SpeakableTextPresentCheck" />
-
         </LinearLayout>
+
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Dear [Professor/Dr.] [Recommender Name],\n \nI hope you’re well. I’m in the process of applying to [school or company name] and want to ask if you feel comfortable writing a strong letter of recommendation on my behalf.\n\nI thoroughly enjoyed my time as [your relationship to the recommender]. As my [teacher/counselor/manager],
-    I believe you could honestly and effectively vouch for my [list of skills or qualifications]
-    I’ve demonstrated during our time together.\n\nI appreciate you considering my request. The deadline
-    for submitting the letter is [date]. I’ve attached an updated version of my [resume/brag sheet], as well as the
-    [job posting/admission requirements] and details on how to submit the letter. If you need any additional information, don’t hesitate to contact me.\n\nThank you for your time and support.\n\nSincerely,\n\n[Your Name]\n\n[Your phone number]" />
+            android:text="Dear [Recruiter Name],\n\n Thank you for offering me a position as a [name of job role postion] for this summer. I enjoyed meeting with the team and really appreciate your emphasis on continual learning at [name of company]. I would like to request an extension for my offer deadline of [original deadline date]. After talking with [Name of Department or college] Career Services, I’ve learned that my university recommends students are given three weeks in order to fully consider an offer and make an informed decision. The university guidelines are listed here: [ input linkhttps://ecs.grainger.illinois.edu/student-resources/offers/guidelines].\n\nWould you be able to adhere to my university’s offer deadline guidelines?\n\nIf you would prefer to discuss this over call, I'd be happy to do that as well.\n\nI'm available during these times:\n\n [Give a few different dates with different time slots you are available]\n\nThank you for your consideration of my request.\n\nSincerely, [Your Name]\n\nPhone Number: [include your phone number]"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="131dp" />
 
         <ImageButton
             android:id="@+id/shareButton"
