@@ -8,13 +8,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal|top">
+            android:gravity="center_horizontal|top"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/backButton"
@@ -24,13 +26,13 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <EditText
-                android:id="@+id/Title"
+                android:id="@+id/draftTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:ems="10"
                 android:gravity="center"
                 android:inputType="textPersonName"
-                android:text="Deadline Extension Draft"
+                android:text="Draft"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -40,17 +42,15 @@
                 android:layout_height="75dp"
                 app:srcCompat="@drawable/ic_heart_foreground"
                 tools:ignore="SpeakableTextPresentCheck" />
+
         </LinearLayout>
 
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/draft"
+            android:layout_width="wrap_content"
+            android:layout_height="569dp"
             android:layout_margin="10dp"
-            android:text="Dear [Recruiter Name],\n\n Thank you for offering me a position as a [name of job role postion] for this summer. I enjoyed meeting with the team and really appreciate your emphasis on continual learning at [name of company]. I would like to request an extension for my offer deadline of [original deadline date]. After talking with [Name of Department or college] Career Services, I’ve learned that my university recommends students are given three weeks in order to fully consider an offer and make an informed decision. The university guidelines are listed here: [ input linkhttps://ecs.grainger.illinois.edu/student-resources/offers/guidelines].\n\nWould you be able to adhere to my university’s offer deadline guidelines?\n\nIf you would prefer to discuss this over call, I'd be happy to do that as well.\n\nI'm available during these times:\n\n [Give a few different dates with different time slots you are available]\n\nThank you for your consideration of my request.\n\nSincerely, [Your Name]\n\nPhone Number: [include your phone number]"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="131dp" />
+            android:text="Dear [Recruiter Name],\n\n Thank you for offering me a position as a [name of job role postion] for this summer. I enjoyed meeting with the team and really appreciate your emphasis on continual learning at [name of company]. I would like to request an extension for my offer deadline of [original deadline date]. After talking with [Name of Department or college] Career Services, I’ve learned that my university recommends students are given three weeks in order to fully consider an offer and make an informed decision. The university guidelines are listed here: [ input linkhttps://ecs.grainger.illinois.edu/student-resources/offers/guidelines].\n\nWould you be able to adhere to my university’s offer deadline guidelines?\n\nIf you would prefer to discuss this over call, I'd be happy to do that as well.\n\nI'm available during these times:\n\n [Give a few different dates with different time slots you are available]\n\nThank you for your consideration of my request.\n\nSincerely, [Your Name]\n\nPhone Number: [include your phone number]" />
 
         <ImageButton
             android:id="@+id/shareButton"
