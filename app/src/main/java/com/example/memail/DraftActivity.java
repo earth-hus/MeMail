@@ -2,8 +2,10 @@ package com.example.memail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -19,6 +21,8 @@ public class DraftActivity extends AppCompatActivity {
     FirebaseFirestore db;
     CollectionReference saved;
     FirebaseAuth mAuth;
+    ImageButton share;
+    EditText text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,26 @@ public class DraftActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         saved = db.collection("Saved");
         mAuth = FirebaseAuth.getInstance();
+
+        text = findViewById(R.id.draft);
+
+        share = findViewById(R.id.shareButton);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String message = text.getText().toString();
+
+
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_TEXT, message);
+
+                //need this to prompts email client only
+                email.setType("message/rfc822");
+
+                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+            }
+        });
 
         saveButton.setOnClickListener(this::onClick);
     }

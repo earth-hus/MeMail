@@ -57,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
 //        }
     }
     public void onClick(View v) {
+        String buttonText = b.getText().toString();
         Intent myIntent = new Intent(HomeActivity.this, TopicActivity.class);
         String category = "";
 

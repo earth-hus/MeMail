@@ -34,7 +34,8 @@ public class LogInActivity extends AppCompatActivity {
 
         googleBtn = findViewById(R.id.GoogleSignIn);
 
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("927326515197-ifh3mt8gnl63vqpislvsp2pqsnepvpg1.apps.googleusercontent.com").requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
