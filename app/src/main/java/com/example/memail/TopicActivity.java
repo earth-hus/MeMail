@@ -24,8 +24,22 @@ public class TopicActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String category = intent.getStringExtra("Category");
+        System.out.println("Category:  "+category);
+        if(category.equals("School")){
+            list = new ArrayList<>(Arrays.asList("Absence,Assignment Question,Exam Rescheduling,Extension Request,Introduction,Recommendation Letter,Research Interest".split(",")));
+        }
+        else if(category.equals("Profession")){
+            list = new ArrayList<>(Arrays.asList("Absence,Decline Offer,Accept Offer,Extension Request,Recommendation Letter,Letter of Resignation, Request PTO,Notify Date Time Off, Job Offer Negotiation ".split(",")));
+        }
+        else if(category.equals("Organization")){
+            list = new ArrayList<>(Arrays.asList("Speaker Invitation,Event Volunteering,Request Sponsorship".split(",")));
 
-        list = new ArrayList<>(Arrays.asList("Absence,Assignment Question,Exam Rescheduling,Extension Request,Introduction,Recommendation Letter,Research Interest".split(",")));
+        }
+//        else{
+//            list = new ArrayList<>(Arrays.asList("Absence,Assignment Question,Exam Rescheduling,Extension Request,Introduction,Recommendation Letter,Research Interest".split(",")));
+//
+//        }
+
         ListView listView = (ListView) findViewById(R.id.listview);
         listView.setAdapter(new MyCustomAdapter(list, this,"TopicActivity", category));
     }
