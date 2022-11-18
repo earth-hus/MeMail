@@ -47,7 +47,7 @@ public class FormatActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.format_list);
 
-        MyCustomAdapter adapter = new MyCustomAdapter(templateList, this,"FormatActivity");
+        MyCustomAdapter adapter = new MyCustomAdapter(templateList, this,"DraftActivity");
         listView.setAdapter(adapter);
 
         db.collection("Templates").get()
@@ -58,7 +58,6 @@ public class FormatActivity extends AppCompatActivity {
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                             for (DocumentSnapshot d : list) {
                                 Templates c = d.toObject(Templates.class);
-                                String temp = c.getTopic();
 
                                 // Check to make sure topic matches
                                 if (topic.equals(c.getTopic()) && category.equals(c.getCategory())) {
@@ -76,6 +75,10 @@ public class FormatActivity extends AppCompatActivity {
                         Toast.makeText(FormatActivity.this, "Fail to get the data.", Toast.LENGTH_SHORT).show();
                     }
         });
+
+        System.out.println("test");
+
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
