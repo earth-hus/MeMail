@@ -34,7 +34,8 @@ public class LogInActivity extends AppCompatActivity {
 
         googleBtn = findViewById(R.id.GoogleSignIn);
 
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("927326515197-ifh3mt8gnl63vqpislvsp2pqsnepvpg1.apps.googleusercontent.com").requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
@@ -50,8 +51,6 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     void signIn(){
@@ -60,7 +59,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1000){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -69,7 +68,7 @@ public class LogInActivity extends AppCompatActivity {
                 task.getResult(ApiException.class);
                 navigateToSecondActivity();
             } catch (ApiException e) {
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
 
