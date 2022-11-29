@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,7 +40,7 @@ public class TopicActivity extends AppCompatActivity {
 //        }
 
         ListView listView = (ListView) findViewById(R.id.listview);
-        listView.setAdapter(new MyCustomAdapter(list, this,"TopicActivity", category));
+        listView.setAdapter(new CustomAdapter(list, this,"TopicActivity", category));
     }
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), HomeActivity.class);

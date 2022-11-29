@@ -6,20 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class FormatActivity extends AppCompatActivity {
@@ -51,7 +47,7 @@ public class FormatActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.format_list);
 
-        MyCustomAdapter adapter = new MyCustomAdapter(templateList, this,"FormatActivity", templateIds);
+        CustomAdapter adapter = new CustomAdapter(templateList, this,"FormatActivity", templateIds);
         listView.setAdapter(adapter);
 
         db.collection("Templates").get()

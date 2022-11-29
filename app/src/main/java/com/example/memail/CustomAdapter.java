@@ -8,11 +8,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
+public class CustomAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> list;
     private ArrayList<String> documentIds;
 
@@ -20,14 +19,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
     private String application;
     private String category;
 
-    public MyCustomAdapter(ArrayList<String> list, Context context, String Application) {
-        this.list = list;
-        this.context = context;
-        this.application = Application;
-        this.category = "";
-    }
-
-    public MyCustomAdapter(ArrayList<String> list, Context context, String Application, String category) {
+    public CustomAdapter(ArrayList<String> list, Context context, String Application, String category) {
         this.list = list;
         this.context = context;
         this.application = Application;
@@ -35,7 +27,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
     }
 
     // Adapter for format activity list
-    public MyCustomAdapter(ArrayList<String> list, Context context, String Application, ArrayList<String> documentIds) {
+    public CustomAdapter(ArrayList<String> list, Context context, String Application, ArrayList<String> documentIds) {
         this.list = list;
         this.context = context;
         this.application = Application;
