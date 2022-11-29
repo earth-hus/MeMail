@@ -26,6 +26,9 @@ public class FormatActivity extends AppCompatActivity {
     // List of formats
     ArrayList<String> templateList;
 
+    // List of format IDs
+    ArrayList<String> templateIds;
+
     // Database
     FirebaseFirestore db;
 
@@ -44,10 +47,11 @@ public class FormatActivity extends AppCompatActivity {
         // Get instance of firebase firestore
         db = FirebaseFirestore.getInstance();
         templateList = new ArrayList<>();
+        templateIds = new ArrayList<>();
 
         ListView listView = (ListView) findViewById(R.id.format_list);
 
-        MyCustomAdapter adapter = new MyCustomAdapter(templateList, this,"FormatActivity");
+        MyCustomAdapter adapter = new MyCustomAdapter(templateList, this,"FormatActivity", templateIds);
         listView.setAdapter(adapter);
 
         db.collection("Templates").get()
@@ -62,6 +66,7 @@ public class FormatActivity extends AppCompatActivity {
                                 // Check to make sure topic matches
                                 if (topic.equals(c.getTopic()) && category.equals(c.getCategory())) {
                                     templateList.add(c.getTitle());
+                                    templateIds.add(d.getId());
                                     adapter.notifyDataSetChanged();
                                 }
                             }
@@ -75,10 +80,6 @@ public class FormatActivity extends AppCompatActivity {
                         Toast.makeText(FormatActivity.this, "Fail to get the data.", Toast.LENGTH_SHORT).show();
                     }
         });
-
-        System.out.println("test");
-
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
