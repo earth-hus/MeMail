@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +28,7 @@ public class TopicActivity extends AppCompatActivity {
             list = new ArrayList<>(Arrays.asList("Absence,Assignment Question,Exam Rescheduling,Extension Request,Introduction,Recommendation Letter,Research Interest".split(",")));
         }
         else if(category.equals("Profession")){
-            list = new ArrayList<>(Arrays.asList("Absence,Decline Offer,Accept Offer,Extension Request,Recommendation Letter,Letter of Resignation, Request PTO,Notify Date Time Off, Job Offer Negotiation ".split(",")));
+            list = new ArrayList<>(Arrays.asList("Absence,Decline Offer,Accept Offer,Extension Request,Recommendation Letter,Letter of Resignation,Request PTO,Notify Date Time Off,Job Offer Negotiation".split(",")));
         }
         else if(category.equals("Organization")){
             list = new ArrayList<>(Arrays.asList("Speaker Invitation,Event Volunteering,Request Sponsorship".split(",")));
@@ -41,7 +40,7 @@ public class TopicActivity extends AppCompatActivity {
 //        }
 
         ListView listView = (ListView) findViewById(R.id.listview);
-        listView.setAdapter(new MyCustomAdapter(list, this,"TopicActivity", category));
+        listView.setAdapter(new CustomAdapter(list, this,"TopicActivity", category));
     }
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), HomeActivity.class);

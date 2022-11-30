@@ -50,13 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="569dp"
             android:layout_margin="10dp"
-            android:text="Dear [Professor/Dr.] [Recommender Name],\n \nI hope you’re well. I’m in the process of applying to [school or company name] and want to ask if you feel comfortable writing a strong letter of recommendation on my behalf.\n\n
-    I thoroughly enjoyed my time as [your relationship to the recommender]. As my [teacher/counselor/manager],
-    I believe you could honestly and effectively vouch for my [list of skills or qualifications]
-    I’ve demonstrated during our time together.\n\nI appreciate you considering my request. The deadline
-    for submitting the letter is [date]. I’ve attached an updated version of my [resume/brag sheet], as well as the
-    [job posting/admission requirements] and details on how to submit the letter. If you need any additional information, don’t hesitate to contact me.\n\n
-    Thank you for your time and support.\n\nSincerely,\n\n[Your Name]\n\n[Your phone number]" />
+            android:text="" />
 
         <ImageButton
             android:id="@+id/shareButton"
