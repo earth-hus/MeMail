@@ -13,12 +13,14 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SavedActivity extends AppCompatActivity {
 
-    ArrayList<String> list;
+    ArrayList<String> arrlist;
+    ArrayList<String> documents;
     FirebaseFirestore db;
 
     @Override
@@ -30,10 +32,11 @@ public class SavedActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Saved Drafts");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        list = new ArrayList<>();
+        arrlist = new ArrayList<>();
+        documents = new ArrayList<>();
 
         ListView listView = (ListView) findViewById(R.id.Saved_list);
-        MyCustomAdapter adapter = new MyCustomAdapter(list, this,"FormatActivity",);
+        CustomAdapter adapter = new CustomAdapter(arrlist, this, "FormatActivity", documents);
         listView.setAdapter(adapter);
 
         db.collection("Saved").get()
@@ -46,8 +49,9 @@ public class SavedActivity extends AppCompatActivity {
                                 Templates c = d.toObject(Templates.class);
 
                                 // Check to make sure topic matches
-                                    list.add(c.getTitle());
-                                    adapter.notifyDataSetChanged();
+                                arrlist.add(c.getTitle());
+                                documents.add(d.getId());
+                                adapter.notifyDataSetChanged();
                             }
                         } else {
                             Toast.makeText(SavedActivity.this, "No templates found in Database", Toast.LENGTH_SHORT).show();
@@ -58,5 +62,7 @@ public class SavedActivity extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(SavedActivity.this, "Fail to get the data.", Toast.LENGTH_SHORT).show();
                     }
+
+                });
     }
 }
