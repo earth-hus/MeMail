@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -61,9 +62,9 @@ public class DraftActivity extends AppCompatActivity {
 
                 String message = draftContent.getText().toString();
 
-
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.putExtra(Intent.EXTRA_TEXT, message);
+                email.putExtra(Intent.EXTRA_SUBJECT, draftTitle.getText().toString());
 
                 //need this to prompts email client only
                 email.setType("message/rfc822");
@@ -71,8 +72,6 @@ public class DraftActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(email, "Choose an Email client :"));
             }
         });
-
-
 
         saveButton.setOnClickListener(this::onClick);
     }

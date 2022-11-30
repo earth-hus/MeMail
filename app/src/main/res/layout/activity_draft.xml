@@ -28,37 +28,60 @@
             <EditText
                 android:id="@+id/draftTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="75dp"
+                android:layout_height="match_parent"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textPersonName"
+                android:inputType="textEmailSubject"
                 android:text="Draft"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/saveButton"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleY=".75"
+                android:scaleX=".75"
+                android:layout_gravity="center_vertical|right"
                 app:srcCompat="@drawable/ic_heart_foreground"
+                android:background="@color/white"
                 tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/draft"
-            android:layout_width="wrap_content"
-            android:layout_height="569dp"
-            android:layout_margin="10dp"
-            android:text="" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/shareButton"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_gravity="bottom|right"
-            app:srcCompat="@android:drawable/ic_menu_share"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/draft"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:text="\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+                    android:gravity="top" />
+
+
+                <ImageButton
+                    android:id="@+id/shareButton"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:scaleX=".75"
+                    android:scaleY=".75"
+                    android:layout_gravity="bottom|right"
+                    app:srcCompat="@drawable/ic_export_foreground"
+                    android:backgroundTint="@color/white"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
