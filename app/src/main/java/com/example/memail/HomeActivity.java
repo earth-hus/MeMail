@@ -47,6 +47,18 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+        CollectionReference templates = db.collection("Templates");
+
+//        Map<String, Object> data = new HashMap<>();
+//        data.put("Category", "Profession");
+//        data.put("Draft", "This is \n a teset \n for line \n breaks \n");
+//        data.put("Title", "Draft");
+//        data.put("Format", "Default Draft");
+//        data.put("Topic", "Job Offer Negotiation");
+//        templates.document().set(data);
+
+
 //    binding.btnGoogleSignOut.setOnClickListener {
 //            firebaseAuth.signOut()
 //            googleSignInClient.signOut()
@@ -55,6 +67,9 @@ public class HomeActivity extends AppCompatActivity {
 //            Log.d(TAG, "onActivityResult : Sign Out Successfully!")
 //            Toast.makeText(this, "Sign Out Successfully!", Toast.LENGTH_SHORT).show()
 //        }
+
+
+//        signOut.setOnClickListener()
     }
     public void onClick(View v) {
         String buttonText = b.getText().toString();
@@ -73,16 +88,4 @@ public class HomeActivity extends AppCompatActivity {
         HomeActivity.this.startActivity(myIntent);
     }
 
-//        CollectionReference templates = db.collection("Templates");
-
-//        Map<String, Object> data = new HashMap<>();
-//        data.put("Category", "Organization");
-//        data.put("Draft", "Test 2");
-//        data.put("Title", "Draft");
-//        data.put("Format", "Default Draft");
-//        data.put("Topic", "Topic 2");
-//        templates.document().set(data);
-
-
-    //    signOut.setOnClickListener()
 }

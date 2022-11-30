@@ -80,6 +80,7 @@ public class FormatActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), TopicActivity.class);
+
         startActivity(myIntent);
         return true;
     }

@@ -28,7 +28,7 @@ public class TopicActivity extends AppCompatActivity {
             list = new ArrayList<>(Arrays.asList("Absence,Assignment Question,Exam Rescheduling,Extension Request,Introduction,Recommendation Letter,Research Interest".split(",")));
         }
         else if(category.equals("Profession")){
-            list = new ArrayList<>(Arrays.asList("Absence,Decline Offer,Accept Offer,Extension Request,Recommendation Letter,Letter of Resignation, Request PTO,Notify Date Time Off, Job Offer Negotiation ".split(",")));
+            list = new ArrayList<>(Arrays.asList("Absence,Decline Offer,Accept Offer,Extension Request,Recommendation Letter,Letter of Resignation,Request PTO,Notify Date Time Off,Job Offer Negotiation".split(",")));
         }
         else if(category.equals("Organization")){
             list = new ArrayList<>(Arrays.asList("Speaker Invitation,Event Volunteering,Request Sponsorship".split(",")));
