@@ -29,13 +29,16 @@
                 android:textColor="@color/black"
                 android:textSize="45sp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/savedButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
                 android:layout_gravity="start"
+                android:layout_weight="2"
+                android:background="#FFFFFF"
                 android:contentDescription="@string/saved"
+                android:scaleX="0.75"
+                android:scaleY="0.75"
                 android:src="@drawable/ic_heart_foreground" />
 
             <ImageView
