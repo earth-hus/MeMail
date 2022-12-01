@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -24,6 +26,9 @@ public class SavedActivity extends AppCompatActivity {
     ArrayList<String> arrlist;
     ArrayList<String> documents;
     FirebaseFirestore db;
+
+    // Get current user
+    FirebaseUser currentFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +52,17 @@ public class SavedActivity extends AppCompatActivity {
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         if (!queryDocumentSnapshots.isEmpty()) {
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                            currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
                             for (DocumentSnapshot d : list) {
-                                Templates c = d.toObject(Templates.class);
+                                Saved c = d.toObject(Saved.class);
 
                                 // Check to make sure topic matches
-                                arrlist.add(c.getTitle());
-                                documents.add(d.getId());
-                                adapter.notifyDataSetChanged();
+                                if (currentFirebaseUser != null && currentFirebaseUser.getUid().equals(c.getUID())) {
+                                    arrlist.add(c.getTitle());
+                                    documents.add(d.getId());
+                                    adapter.notifyDataSetChanged();
+                                }
                             }
                         } else {
                             Toast.makeText(SavedActivity.this, "No templates found in Database", Toast.LENGTH_SHORT).show();
