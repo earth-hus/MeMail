@@ -2,6 +2,7 @@ package com.example.memail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.Telephony;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,6 +77,12 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
                 else if(application.equals("FormatActivity")){
                     Intent myIntent = new Intent(context, DraftActivity.class);
 
+                    myIntent.putExtra("ID", documentIds.get(position));
+
+                    context.startActivity(myIntent);
+                }
+                else if(application.equals("SavedActivity")) {
+                    Intent myIntent = new Intent(context, DraftActivity.class);
 
                     myIntent.putExtra("ID", documentIds.get(position));
 
