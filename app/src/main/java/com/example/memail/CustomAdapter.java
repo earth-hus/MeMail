@@ -76,6 +76,7 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
                 else if(application.equals("FormatActivity")){
                     Intent myIntent = new Intent(context, DraftActivity.class);
 
+
                     myIntent.putExtra("ID", documentIds.get(position));
 
                     context.startActivity(myIntent);
