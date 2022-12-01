@@ -18,18 +18,14 @@
             android:gravity="center_horizontal|top"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                app:srcCompat="@drawable/ic_back_arrow_foreground"
-                tools:ignore="SpeakableTextPresentCheck" />
+
 
             <EditText
                 android:id="@+id/draftTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:ems="10"
+                android:layout_marginLeft="80dp"
                 android:gravity="center"
                 android:inputType="textEmailSubject"
                 android:text="Draft"

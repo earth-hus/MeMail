@@ -21,6 +21,7 @@ public class TopicActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Email Topics");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         Intent intent = getIntent();
         String category = intent.getStringExtra("Category");
         System.out.println("Category:  "+category);
