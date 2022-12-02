@@ -129,11 +129,17 @@ public class DraftActivity extends AppCompatActivity {
         }
     }
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);
-        System.out.println("draft :"+topic+" "+category);
-        myIntent.putExtra("Topic", topic);
-        myIntent.putExtra("Category",category);
-        startActivity(myIntent);
+        if (isSaved == false){
+            Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);
+            System.out.println("draft :"+topic+" "+category);
+            myIntent.putExtra("Topic", topic);
+            myIntent.putExtra("Category",category);
+            startActivity(myIntent);
+        }
+        else{
+            Intent myIntent = new Intent(getApplicationContext(), SavedActivity.class);
+            startActivity(myIntent);
+        }
         return true;
     }
 
