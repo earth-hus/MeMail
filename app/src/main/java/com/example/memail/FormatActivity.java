@@ -28,6 +28,8 @@ public class FormatActivity extends AppCompatActivity {
     // Database
     FirebaseFirestore db;
 
+    String category;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class FormatActivity extends AppCompatActivity {
         // Get the topic of intended email
         Bundle extras = getIntent().getExtras();
         String topic = extras.getString("Topic");
-        String category = extras.getString("Category");
+        category = extras.getString("Category");
 
         // Get instance of firebase firestore
         db = FirebaseFirestore.getInstance();
@@ -47,7 +49,7 @@ public class FormatActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.format_list);
 
-        CustomAdapter adapter = new CustomAdapter(templateList, this,"FormatActivity", templateIds);
+        CustomAdapter adapter = new CustomAdapter(templateList, this,"FormatActivity", templateIds,topic,category);
         listView.setAdapter(adapter);
 
         db.collection("Templates").get()
@@ -58,6 +60,7 @@ public class FormatActivity extends AppCompatActivity {
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                             for (DocumentSnapshot d : list) {
                                 Templates c = d.toObject(Templates.class);
+                                System.out.println(topic+"  "+category);
 
                                 // Check to make sure topic matches
                                 if (topic.equals(c.getTopic()) && category.equals(c.getCategory())) {
@@ -80,7 +83,7 @@ public class FormatActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), TopicActivity.class);
-
+        myIntent.putExtra("Category", category);
         startActivity(myIntent);
         return true;
     }

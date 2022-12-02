@@ -29,6 +29,10 @@ public class DraftActivity extends AppCompatActivity {
     ImageButton share;
     EditText draftContent;
     EditText draftTitle;
+
+    String topic;
+    String category;
+
     String docId;
     boolean isSaved;
 
@@ -46,6 +50,9 @@ public class DraftActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         docId = extras.getString("ID");
         isSaved = extras.getBoolean("isSaved");
+
+        topic = extras.getString("Topic");
+        category = extras.getString("Category");
 
         draftContent = findViewById(R.id.draft);
         draftTitle = findViewById(R.id.draftTitle);
@@ -82,8 +89,9 @@ public class DraftActivity extends AppCompatActivity {
                 String message = draftContent.getText().toString();
 
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_TEXT, message);
                 email.putExtra(Intent.EXTRA_SUBJECT, draftTitle.getText().toString());
+                email.putExtra(Intent.EXTRA_TEXT, message);
+
 
                 //need this to prompts email client only
                 email.setType("message/rfc822");
@@ -121,8 +129,17 @@ public class DraftActivity extends AppCompatActivity {
         }
     }
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);
-        startActivity(myIntent);
+        if (isSaved == false){
+            Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);
+            System.out.println("draft :"+topic+" "+category);
+            myIntent.putExtra("Topic", topic);
+            myIntent.putExtra("Category",category);
+            startActivity(myIntent);
+        }
+        else{
+            Intent myIntent = new Intent(getApplicationContext(), SavedActivity.class);
+            startActivity(myIntent);
+        }
         return true;
     }
 
