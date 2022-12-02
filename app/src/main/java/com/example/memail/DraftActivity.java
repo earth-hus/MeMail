@@ -65,8 +65,9 @@ public class DraftActivity extends AppCompatActivity {
                 String message = draftContent.getText().toString();
 
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_TEXT, message);
                 email.putExtra(Intent.EXTRA_SUBJECT, draftTitle.getText().toString());
+                email.putExtra(Intent.EXTRA_TEXT, message);
+
 
                 //need this to prompts email client only
                 email.setType("message/rfc822");
@@ -89,6 +90,8 @@ public class DraftActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);
+        myIntent.putExtra("topic", "draft");
+        myIntent.putExtra("Category", "category");
         startActivity(myIntent);
         return true;
     }

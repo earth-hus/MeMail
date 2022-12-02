@@ -28,6 +28,8 @@ public class FormatActivity extends AppCompatActivity {
     // Database
     FirebaseFirestore db;
 
+    String category;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class FormatActivity extends AppCompatActivity {
         // Get the topic of intended email
         Bundle extras = getIntent().getExtras();
         String topic = extras.getString("Topic");
-        String category = extras.getString("Category");
+        category = extras.getString("Category");
 
         // Get instance of firebase firestore
         db = FirebaseFirestore.getInstance();
@@ -80,7 +82,7 @@ public class FormatActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), TopicActivity.class);
-
+        myIntent.putExtra("Category", category);
         startActivity(myIntent);
         return true;
     }
