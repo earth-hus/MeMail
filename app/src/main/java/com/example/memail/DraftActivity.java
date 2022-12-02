@@ -51,8 +51,8 @@ public class DraftActivity extends AppCompatActivity {
         docId = extras.getString("ID");
         isSaved = extras.getBoolean("isSaved");
 
-        topic = extras.getString("topic");
-        category = extras.getString("category");
+        topic = extras.getString("Topic");
+        category = extras.getString("Category");
 
         draftContent = findViewById(R.id.draft);
         draftTitle = findViewById(R.id.draftTitle);
@@ -130,8 +130,9 @@ public class DraftActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);
+        System.out.println("draft :"+topic+" "+category);
         myIntent.putExtra("Topic", topic);
-        myIntent.putExtra("Category", category);
+        myIntent.putExtra("Category",category);
         startActivity(myIntent);
         return true;
     }

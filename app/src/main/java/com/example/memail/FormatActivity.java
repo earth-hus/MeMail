@@ -60,6 +60,7 @@ public class FormatActivity extends AppCompatActivity {
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                             for (DocumentSnapshot d : list) {
                                 Templates c = d.toObject(Templates.class);
+                                System.out.println(topic+"  "+category);
 
                                 // Check to make sure topic matches
                                 if (topic.equals(c.getTopic()) && category.equals(c.getCategory())) {
