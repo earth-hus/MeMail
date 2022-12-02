@@ -29,6 +29,8 @@ public class DraftActivity extends AppCompatActivity {
     ImageButton share;
     EditText draftContent;
     EditText draftTitle;
+    String topic;
+    String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,9 @@ public class DraftActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         String docId = extras.getString("ID");
+
+        topic = extras.getString("topic");
+        category = extras.getString("category");
 
         draftContent = findViewById(R.id.draft);
         draftTitle = findViewById(R.id.draftTitle);
@@ -93,8 +98,8 @@ public class DraftActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);
-        myIntent.putExtra("topic", "draft");
-        myIntent.putExtra("Category", "category");
+        myIntent.putExtra("topic", topic);
+        myIntent.putExtra("Category", category);
         startActivity(myIntent);
         return true;
     }
