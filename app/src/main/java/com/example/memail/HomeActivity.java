@@ -229,6 +229,7 @@ public class HomeActivity extends AppCompatActivity {
 //        }
 //        signOut.setOnClickListener()
     }
+
     public void onClick(View v) {
         String buttonText = b.getText().toString();
         Intent myIntent = new Intent(HomeActivity.this, TopicActivity.class);
