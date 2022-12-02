@@ -31,12 +31,6 @@
             android:layout_marginHorizontal="10dp"
             android:background="@color/dark_gray"/>
 
-        <android.widget.SearchView
-            android:id="@+id/formatSearchView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="false"
-            android:queryHint="Search Formats" />
 
         <LinearLayout
             android:layout_width="match_parent"
