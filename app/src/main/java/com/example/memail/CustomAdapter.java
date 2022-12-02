@@ -2,6 +2,7 @@ package com.example.memail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.Telephony;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
     private Context context;
     private String application;
     private String category;
+    private String topic;
 
     public CustomAdapter(ArrayList<String> list, Context context, String Application, String category) {
         this.list = list;
@@ -30,8 +32,18 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
     public CustomAdapter(ArrayList<String> list, Context context, String Application, ArrayList<String> documentIds) {
         this.list = list;
         this.context = context;
+
         this.application = Application;
         this.documentIds = documentIds;
+    }
+
+    public CustomAdapter(ArrayList<String> list, Context context, String Application, ArrayList<String> documentIds,String topic, String Category) {
+        this.list = list;
+        this.context = context;
+        this.application = Application;
+        this.documentIds = documentIds;
+        this.topic = topic;
+        this.category = Category;
     }
 
     @Override
@@ -76,8 +88,19 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
                 else if(application.equals("FormatActivity")){
                     Intent myIntent = new Intent(context, DraftActivity.class);
 
+                    myIntent.putExtra("ID", documentIds.get(position));
+                    myIntent.putExtra("Topic", topic);
+
+                    myIntent.putExtra("Category", category);
+                    myIntent.putExtra("isSaved", false);
+
+                    context.startActivity(myIntent);
+                }
+                else if(application.equals("SavedActivity")) {
+                    Intent myIntent = new Intent(context, DraftActivity.class);
 
                     myIntent.putExtra("ID", documentIds.get(position));
+                    myIntent.putExtra("isSaved", true);
 
                     context.startActivity(myIntent);
                 }

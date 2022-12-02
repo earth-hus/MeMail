@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,6 +22,8 @@ public class HomeActivity extends AppCompatActivity {
 
     Button signOutButton;
     FirebaseAuth mAuth;
+
+    ImageButton savedButton;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
@@ -68,6 +72,14 @@ public class HomeActivity extends AppCompatActivity {
         data1.put("Topic", "Absence");
         templates.document("s1").set(data1);
 
+        savedButton = findViewById(R.id.savedButton);
+        savedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, SavedActivity.class);
+                HomeActivity.this.startActivity(intent);
+            }
+        });
 
         Map<String, Object> data2 = new HashMap<>();
         data2.put("Category", "School");
@@ -428,10 +440,9 @@ public class HomeActivity extends AppCompatActivity {
 //            Log.d(TAG, "onActivityResult : Sign Out Successfully!")
 //            Toast.makeText(this, "Sign Out Successfully!", Toast.LENGTH_SHORT).show()
 //        }
-
-
 //        signOut.setOnClickListener()
     }
+
     public void onClick(View v) {
         String buttonText = b.getText().toString();
         Intent myIntent = new Intent(HomeActivity.this, TopicActivity.class);
