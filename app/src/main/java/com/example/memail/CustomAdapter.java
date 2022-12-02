@@ -43,7 +43,7 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
         this.application = Application;
         this.documentIds = documentIds;
         this.topic = topic;
-        this.category = category;
+        this.category = Category;
     }
 
     @Override
@@ -89,9 +89,9 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
                     Intent myIntent = new Intent(context, DraftActivity.class);
 
                     myIntent.putExtra("ID", documentIds.get(position));
-                    myIntent.putExtra("topic", topic);
+                    myIntent.putExtra("Topic", topic);
 
-                    myIntent.putExtra("category", category);
+                    myIntent.putExtra("Category", category);
                     myIntent.putExtra("isSaved", false);
 
                     context.startActivity(myIntent);

@@ -130,7 +130,7 @@ public class DraftActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);
-        myIntent.putExtra("topic", topic);
+        myIntent.putExtra("Topic", topic);
         myIntent.putExtra("Category", category);
         startActivity(myIntent);
         return true;
