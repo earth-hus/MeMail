@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -80,6 +81,8 @@ public class DraftActivity extends AppCompatActivity {
     }
 
     public void onClick(View v) {
+        Toast.makeText(getApplicationContext(), "Email saved!", Toast.LENGTH_SHORT).show();
+
         Map<String, Object> data = new HashMap<>();
         EditText draft = findViewById(R.id.draft);
         EditText title = findViewById(R.id.draftTitle);

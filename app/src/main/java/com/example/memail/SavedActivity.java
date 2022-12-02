@@ -43,7 +43,7 @@ public class SavedActivity extends AppCompatActivity {
         documents = new ArrayList<>();
 
         ListView listView = (ListView) findViewById(R.id.Saved_list);
-        CustomAdapter adapter = new CustomAdapter(arrlist, this, "FormatActivity", documents);
+        CustomAdapter adapter = new CustomAdapter(arrlist, this, "SavedActivity", documents);
         listView.setAdapter(adapter);
 
         db.collection("Saved").get()
