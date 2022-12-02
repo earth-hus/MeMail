@@ -29,8 +29,12 @@ public class DraftActivity extends AppCompatActivity {
     ImageButton share;
     EditText draftContent;
     EditText draftTitle;
+
     String topic;
     String category;
+
+    String docId;
+    boolean isSaved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +48,8 @@ public class DraftActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         Bundle extras = getIntent().getExtras();
-        String docId = extras.getString("ID");
+        docId = extras.getString("ID");
+        isSaved = extras.getBoolean("isSaved");
 
         topic = extras.getString("topic");
         category = extras.getString("category");
@@ -52,16 +57,29 @@ public class DraftActivity extends AppCompatActivity {
         draftContent = findViewById(R.id.draft);
         draftTitle = findViewById(R.id.draftTitle);
 
-        DocumentReference docref = db.collection("Templates").document(docId);
-        docref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Templates template = documentSnapshot.toObject(Templates.class);
+        if (!isSaved) {
+            DocumentReference docref = db.collection("Templates").document(docId);
+            docref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    Templates template = documentSnapshot.toObject(Templates.class);
 
-                draftContent.setText(template.getDraft());
-                draftTitle.setText(template.getTitle());
-            }
-        });
+                    draftContent.setText(template.getDraft());
+                    draftTitle.setText(template.getTitle());
+                }
+            });
+        } else {
+            DocumentReference docref = db.collection("Saved").document(docId);
+            docref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    Templates template = documentSnapshot.toObject(Templates.class);
+
+                    draftContent.setText(template.getDraft());
+                    draftTitle.setText(template.getTitle());
+                }
+            });
+        }
 
         share = findViewById(R.id.shareButton);
         share.setOnClickListener(new View.OnClickListener() {
@@ -86,15 +104,29 @@ public class DraftActivity extends AppCompatActivity {
     }
 
     public void onClick(View v) {
-        Toast.makeText(getApplicationContext(), "Email saved!", Toast.LENGTH_SHORT).show();
+        if (isSaved) {
+//            Toast.makeText(getApplicationContext(), "Email Unsaved!", Toast.LENGTH_SHORT).show();
+            isSaved = !isSaved;
 
-        Map<String, Object> data = new HashMap<>();
-        EditText draft = findViewById(R.id.draft);
-        EditText title = findViewById(R.id.draftTitle);
-        data.put("Draft", draft.getText().toString());
-        data.put("Title", title.getText().toString());
-        data.put("UID", mAuth.getUid());
-        saved.document().set(data);
+            db.collection("Saved").document(docId)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(getApplicationContext(), "Email Unsaved!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(getApplicationContext(), "Email saved!", Toast.LENGTH_SHORT).show();
+
+            Map<String, Object> data = new HashMap<>();
+            EditText draft = findViewById(R.id.draft);
+            EditText title = findViewById(R.id.draftTitle);
+            data.put("Draft", draft.getText().toString());
+            data.put("Title", title.getText().toString());
+            data.put("UID", mAuth.getUid());
+            saved.document().set(data);
+        }
     }
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), FormatActivity.class);

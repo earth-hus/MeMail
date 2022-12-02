@@ -90,7 +90,9 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
 
                     myIntent.putExtra("ID", documentIds.get(position));
                     myIntent.putExtra("topic", topic);
+
                     myIntent.putExtra("category", category);
+                    myIntent.putExtra("isSaved", false);
 
                     context.startActivity(myIntent);
                 }
@@ -98,6 +100,7 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter {
                     Intent myIntent = new Intent(context, DraftActivity.class);
 
                     myIntent.putExtra("ID", documentIds.get(position));
+                    myIntent.putExtra("isSaved", true);
 
                     context.startActivity(myIntent);
                 }
