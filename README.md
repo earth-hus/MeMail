@@ -15,5 +15,5 @@ MeMail offers a unique solution! Email template generation for various scenarios
 
 
 ## Resources
-Youtube Link: https://www.youtube.com/watch?v=7I6DA8tvUcM
-Here is the pdf to the presentation:[MeMail Final Presentation.pdf](https://github.com/user-attachments/files/17023159/MeMail.Final.Presentation.pdf)
+- Youtube Link: https://www.youtube.com/watch?v=7I6DA8tvUcM 
+- Here is the pdf to the presentation:[MeMail Final Presentation.pdf](https://github.com/user-attachments/files/17023159/MeMail.Final.Presentation.pdf)
